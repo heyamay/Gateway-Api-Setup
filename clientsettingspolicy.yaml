@@ -1,0 +1,16 @@
+apiVersion: gateway.nginx.org/v1alpha1
+kind: ClientSettingsPolicy
+metadata:
+  name: poc-proxy-settings
+  namespace: nginx-gateway
+spec:
+  body:
+    maxSize: 100m
+  request:
+    connectTimeout: 600s
+    readTimeout: 600s
+    sendTimeout: 600s
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: nginx-gateway
