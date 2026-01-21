@@ -1,0 +1,13 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: ReferenceGrant
+metadata:
+  name: allow-prod-app-routes
+  namespace: nginx-gateway
+spec:
+  from:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    namespace: prod-app
+  to:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
